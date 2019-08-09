@@ -31,22 +31,29 @@ module.exports = {
     alias: {
       src: path.resolve(__dirname, 'src'),
       components: path.resolve(__dirname, 'src', 'components'),
+      css: path.resolve(__dirname, 'src', 'css'),
     },
   },
   module: {
-    rules: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-env',
-            '@babel/preset-react',
-          ],
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react',
+            ],
+          },
         },
       },
-    }],
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   optimization: {
     splitChunks: {
