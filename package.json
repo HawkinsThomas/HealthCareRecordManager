@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --hot --open --port 3100"
+    "start": "webpack-dev-server --mode development --hot --open --port 3100",
+    "start-app": "nodemon --inspect srv/app.js"
   },
   "repository": {
     "type": "git",
@@ -29,11 +30,15 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.19.1",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
