@@ -23,8 +23,6 @@ const htmlPlugins = htmlFiles.map((filePath) => {
   });
 });
 
-console.log(htmlPlugins);
-
 module.exports = {
   entry,
   plugins: [...htmlPlugins],
