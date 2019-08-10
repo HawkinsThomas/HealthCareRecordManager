@@ -2,22 +2,23 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
+require('dotenv').config();
 
 const app = express();
 
+
 const { getHomePage } = require('./routes/home');
 // const { addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
-const port = 5000;
 const dist = path.resolve('dist');
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration
 // object which contains host, user, password and the database name.
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Ghrc1993',
-  database: 'HealthCareRecords',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
 // connect to database
@@ -30,7 +31,7 @@ db.connect((err) => {
 global.db = db;
 
 // configure middleware
-app.set('port', process.env.port || port); // set express to use this port
+app.set('port', process.env.HTTP_PORT); // set express to use this port
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(dist));
@@ -41,6 +42,6 @@ app.use(express.static(dist));
 app.get('/', getHomePage);
 
 // set the app to listen on the port
-app.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
+app.listen(process.env.HTTP_PORT, () => {
+  console.log(`Server running on port: ${process.env.HTTP_PORT}`);
 });
