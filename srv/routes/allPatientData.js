@@ -2,10 +2,22 @@ const path = require('path');
 
 module.exports = {
   getAllPatients: (req, res) => {
-    const patientData = {
-      tableHeaders: ['First Name', 'Last Name', 'Health Card No'],
-      tableData: [['Bobby', 'Hill', '123456'], ['Thomas', 'Hawkins', '123456'], ['Elon', 'Musk', '123456'], ['Lil', 'Wayne', '123456']],
-    };
-    res.json(patientData);
+
+    const query = 'SELECT * FROM `patient`';
+
+    db.query(query, (err, result) => {
+      if (err) throw err;
+      else {
+        const tableHeaders = Object.keys(result[0]);
+        const tableData = result.map((row) => {
+          return Object.values(row);
+        });
+        const patientsData = {
+          tableHeaders,
+          tableData,
+        };
+        res.json(patientsData);
+      }
+    });
   },
 };
