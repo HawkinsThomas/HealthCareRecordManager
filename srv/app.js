@@ -8,6 +8,8 @@ const app = express();
 
 
 const { getHomePage } = require('./routes/home');
+const { getPatients } = require('./routes/patients');
+const { getAllPatients } = require('./routes/allPatientData');
 // const { addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
 const dist = path.resolve('dist');
 
@@ -40,6 +42,8 @@ app.use(express.static(dist));
 // routes for the app
 
 app.get('/', getHomePage);
+app.get('/patients', getPatients);
+app.get('/allPatients', getAllPatients);
 
 // set the app to listen on the port
 app.listen(process.env.HTTP_PORT, () => {
