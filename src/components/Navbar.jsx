@@ -13,7 +13,7 @@ export default function Navbar(props) {
             <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="doctors.html">Doctors</a>
+            <a class="nav-link" href="index.html">Doctors</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="patients.html">Patients</a>
