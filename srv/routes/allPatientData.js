@@ -1,23 +1,9 @@
-const path = require('path');
+const { getTable } = require('../db/getTable');
 
 module.exports = {
   getAllPatients: (req, res) => {
-
-    const query = 'SELECT * FROM `patient`';
-
-    db.query(query, (err, result) => {
-      if (err) throw err;
-      else {
-        const tableHeaders = Object.keys(result[0]);
-        const tableData = result.map((row) => {
-          return Object.values(row);
-        });
-        const patientsData = {
-          tableHeaders,
-          tableData,
-        };
-        res.json(patientsData);
-      }
-    });
+    const query = 'SELECT * FROM patient';
+    getTable(query)
+      .then(data => res.json(data));
   },
 };
