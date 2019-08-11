@@ -5,7 +5,7 @@ export default class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      headers: this.props.tableHeaders,
+      tableHeaders: this.props.tableHeaders,
       tableData: this.props.tableData,
       caption: this.props.caption,
       border: this.props.border,
@@ -13,15 +13,15 @@ export default class Table extends Component {
   }
 
   render() {
-    const header = <thead><TableHeader data={this.props.tableHeaders} /></thead>;
-    const rows = this.props.tableData.map((rowData) => {
+    const header = <thead><TableHeader data={this.state.tableHeaders} /></thead>;
+    const rows = this.state.tableData.map((rowData) => {
       return (
         <TableRow data={rowData} />
       );
     });
     return (
-      <table border={this.props.border}>
-        <caption>{this.props.caption}</caption>
+      <table border={this.state.border}>
+        <caption>{this.state.caption}</caption>
         {header}
         {rows}
       </table>
