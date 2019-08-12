@@ -9,6 +9,7 @@ export default class Table extends Component {
       tableData: this.props.tableData,
       caption: this.props.caption,
       border: this.props.border,
+      id: this.props.id,
     };
   }
 
@@ -20,11 +21,14 @@ export default class Table extends Component {
       );
     });
     return (
-      <table border={this.state.border}>
-        <caption>{this.state.caption}</caption>
-        {header}
-        {rows}
-      </table>
+      <div>
+        <table border={this.state.border}>
+          <caption>{this.state.caption}</caption>
+          {header}
+          {rows}
+        </table>
+        <div id={this.state.id || 'form'} />
+      </div>
 
     );
   }
