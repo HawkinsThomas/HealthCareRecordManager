@@ -11,6 +11,11 @@ const { getHomePage } = require('./routes/home');
 const { getPatients } = require('./routes/patients');
 const { getAllPatients } = require('./routes/allPatientData');
 const { getAllUsers } = require('./routes/allUsersData');
+const { getPatientInfo } = require('./routes/patientInfoData');
+const { getPatientBilling } = require('./routes/patientBillingData');
+const { getPatientImmunization } = require('./routes/patientImmunizationData');
+const { getPatientRevisionHistory } = require('./routes/patientRevisionHistoryData');
+
 // const { addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
 const dist = path.resolve('dist');
 
@@ -46,6 +51,10 @@ app.get('/', getHomePage);
 app.get('/patients', getPatients);
 app.get('/allPatients', getAllPatients);
 app.get('/allUsers', getAllUsers);
+app.get('/getPatientInfo/:healthcardno', getPatientInfo);
+app.get('/getPatientBilling/:healthcardno', getPatientBilling);
+app.get('/getPatientImmunization/:healthcardno', getPatientImmunization);
+app.get('/getPatientRevisionHistory/:healthcardno', getPatientRevisionHistory);
 
 // set the app to listen on the port
 app.listen(process.env.HTTP_PORT, () => {
