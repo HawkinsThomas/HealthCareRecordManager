@@ -8,6 +8,7 @@ export default class Form extends Component {
       // data: this.props.data,
       action: this.props.action,
       method: this.props.method,
+      className: this.props.sclassName,
     };
   }
 
@@ -16,9 +17,9 @@ export default class Form extends Component {
       return (
         <Field id={field.id} label={field.label} type={field.type} name={field.name} />
       );
-    })
+    });
     return (
-      <form action={this.state.action} method={this.state.method}>
+      <form className={this.state.className} action={this.state.action} method={this.state.method}>
         {fields}
       </form>
     );

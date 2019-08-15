@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Form from 'components/Form'
 
 export default class Table extends Component {
 
@@ -10,11 +11,32 @@ export default class Table extends Component {
       caption: this.props.caption,
       border: this.props.border,
       id: this.props.id,
+      formActions: {
+        add: this.props.formActions.add,
+        update: this.props.formActions.update,
+        delete: this.props.formActions.delete,
+      },
+      formVisible: false,
     };
+    this.onClickAdd = this.onClickAdd.bind(this);
+  }
+
+  onClickAdd() {
+    this.setState({ formVisible: !this.state.formVisible });
   }
 
   render() {
     const header = <thead><TableHeader data={this.state.tableHeaders} /></thead>;
+    const fields = this.state.tableHeaders.map((header) => {
+      return (
+        {
+          id: header,
+          label: `${header}: `,
+          type: 'text',
+          name: header,
+        }
+      );
+    });
     const rows = this.state.tableData.map((rowData) => {
       return (
         <TableRow data={rowData} />
@@ -27,7 +49,10 @@ export default class Table extends Component {
           {header}
           {rows}
         </table>
-        <div id={this.state.id || 'form'} />
+        <button type="button" onClick={this.onClickAdd}>Add Row</button>
+        <div id={this.state.id || 'form'}>
+        {this.state.formVisible ? <Form action={this.state.formActions.add} method="post" fields={fields} /> : null }
+        </div>
       </div>
 
     );
