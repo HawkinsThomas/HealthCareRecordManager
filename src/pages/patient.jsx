@@ -20,7 +20,7 @@ fetch('http://localhost:4000/getPatientInfo/aaaaa-2')
       tableData={data.tableData}
       tableHeaders={data.tableHeaders}
       caption="Patient Info"
-      formAction={formActions}
+      formActions={formActions}
     />, document.getElementById('table-patientinfo'));
   });
 
@@ -32,7 +32,7 @@ fetch('http://localhost:4000/getPatientBilling/aaaaa-2')
       tableData={data.tableData}
       tableHeaders={data.tableHeaders}
       caption="Patient Billing"
-      formAction={formActions}
+      formActions={formActions}
     />, document.getElementById('table-patientbilling'));
   });
 
@@ -44,7 +44,7 @@ fetch('http://localhost:4000/getPatientImmunization/aaaaa-2')
       tableData={data.tableData}
       tableHeaders={data.tableHeaders}
       caption="Patient Immunization"
-      formAction={formActions}
+      formActions={formActions}
     />, document.getElementById('table-patientimmunization'));
   });
 
@@ -56,6 +56,6 @@ fetch('http://localhost:4000/getPatientRevisionHistory/aaaaa-2')
       tableData={data.tableData}
       tableHeaders={data.tableHeaders}
       caption="Patient Revision History"
-      formAction={formActions}
+      formActions={formActions}
     />, document.getElementById('table-patientrevisionhistory'));
   });
