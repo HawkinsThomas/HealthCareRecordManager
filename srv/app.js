@@ -13,7 +13,11 @@ const { getAllPatients } = require('./routes/allPatientData');
 const { getAllUsers } = require('./routes/allUsersData');
 const { getPatientInfo } = require('./routes/patientInfoData');
 const { getPatientBilling } = require('./routes/patientBillingData');
+const { postPatientBillingAdd } = require('./routes/patientBillingAdd');
+const { postPatientBillingUpdate } = require('./routes/PatientBillingUpdate');
 const { getPatientImmunization } = require('./routes/patientImmunizationData');
+const { postPatientImmunizationAdd } = require('./routes/patientImmunizationAdd');
+const { postPatientImmunizationUpdate } = require('./routes/patientImmunizationUpdate');
 const { getPatientRevisionHistory } = require('./routes/patientRevisionHistoryData');
 
 // const { addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
@@ -53,7 +57,11 @@ app.get('/allPatients', getAllPatients);
 app.get('/allUsers', getAllUsers);
 app.get('/getPatientInfo/:healthcardno', getPatientInfo);
 app.get('/getPatientBilling/:healthcardno', getPatientBilling);
+app.post('/postPatientBillingAdd/', postPatientBillingAdd);
+app.patch('/postPatientBillingUpdate/', postPatientBillingUpdate);
 app.get('/getPatientImmunization/:healthcardno', getPatientImmunization);
+app.post('/postPatientImmunizationAdd/', postPatientImmunizationAdd);
+app.patch('/postPatientImmunizationUpdate/', postPatientImmunizationUpdate);
 app.get('/getPatientRevisionHistory/:healthcardno', getPatientRevisionHistory);
 
 // set the app to listen on the port
