@@ -1,4 +1,4 @@
-const { getTable } = require('../db/getTable');
+const { writeTable } = require('../db/writeTable');
 
 module.exports = {
   postPatientBillingAdd: (req, res) => {
@@ -7,7 +7,8 @@ module.exports = {
     const cvc = req.body.cvc;
     const card_expiry = req.body.card_expiry;
     const query = "INSERT INTO `billing`(billing_id,health_card_no,creditcard_no, cvc, card_expiry) VALUES (NULL,'" + health_card_no + "','" + creditcard_no + "', '" + cvc + "', '" + card_expiry + "')";
-    getTable(query)
+    console.log(query);
+    writeTable(query)
       .then(data => res.json(data));
   },
 };
