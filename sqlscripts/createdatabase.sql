@@ -61,6 +61,18 @@ CREATE TABLE IF NOT EXISTS `doctor_patients`(
 )ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 
+
+CREATE TABLE IF NOT EXISTS `patient_notes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `health_card_no` varchar(12) NOT NULL,
+  `patient_note` text,
+  `date_created` DATE NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY(`health_card_no`) REFERENCES patient(`health_card_no`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+
+
 INSERT INTO doctor_patients value ('mark_zuck', 'aaaaa-1');
 INSERT INTO doctor_patients value ('alien_musk', 'aaaaa-2');
 INSERT INTO doctor_patients value ('money_man', 'aaaaa-3');
@@ -92,6 +104,10 @@ INSERT INTO patientrevisionhistory values (NULL,'aaaaa-2','alien_musk','20090402
 INSERT INTO patientrevisionhistory values (NULL,'aaaaa-3','money_man','20090402','sex');
 INSERT INTO patientrevisionhistory values (NULL,'aaaaa-4','money_man','20150402','street');
 
+INSERT INTO `patient_notes` values 
+('00001','aaaaa-1','Patient is suffering of weakness','20190803'),
+(Null,'aaaaa-2','Patient requested to see a psichologist','20190804'),
+(Null,'aaaaa-3','Patient requested to see Family Doctor','20190805');
 
 
 
