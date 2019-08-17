@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
@@ -20,6 +21,8 @@ const { postPatientImmunizationAdd } = require('./routes/patientImmunizationAdd'
 const { postPatientImmunizationUpdate } = require('./routes/patientImmunizationUpdate');
 const { getPatientRevisionHistory } = require('./routes/patientRevisionHistoryData');
 
+const { login } = require('./routes/login');
+const { register } = require('./routes/register');
 // const { addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
 const dist = path.resolve('dist');
 
@@ -47,10 +50,23 @@ app.set('port', process.env.HTTP_PORT); // set express to use this port
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(dist));
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie:
+  {
+    secure: false,
+    maxAge: 7200000,
+    httpOnly: true,
+  },
+}));
 
 
 // routes for the app
 
+app.post('/login', login);
+app.post('/register', register);
 app.get('/', getHomePage);
 app.get('/patients', getPatients);
 app.get('/allPatients', getAllPatients);
