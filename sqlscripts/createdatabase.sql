@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `user`(
     `first_name` varchar(255) NOT NULL,
     `last_name` varchar(255) NOT NULL,
     `user_name` varchar(10) NOT NULL,
-    `password` varchar(12) NOT NULL,
+    `password` varchar(55) NOT NULL,
      PRIMARY KEY (`user_name`)	
 )ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
