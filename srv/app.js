@@ -13,11 +13,11 @@ const { getAllPatients } = require('./routes/allPatientData');
 const { getAllUsers } = require('./routes/allUsersData');
 const { getPatientInfo } = require('./routes/patientInfoData');
 const { getPatientBilling } = require('./routes/patientBillingData');
-const { getPatientBillingAdd } = require('./routes/patientBillingAdd');
-const { getPatientBillingUpdate } = require('./routes/patientBillingUpdate');
+const { postPatientBillingAdd } = require('./routes/patientBillingAdd');
+const { postPatientBillingUpdate } = require('./routes/patientBillingUpdate');
 const { getPatientImmunization } = require('./routes/patientImmunizationData');
-const { getPatientImmunizationAdd } = require('./routes/patientImmunizationAdd');
-const { getPatientImmunizationUpdate } = require('./routes/patientImmunizationUpdate');
+const { postPatientImmunizationAdd } = require('./routes/patientImmunizationAdd');
+const { postPatientImmunizationUpdate } = require('./routes/patientImmunizationUpdate');
 const { getPatientRevisionHistory } = require('./routes/patientRevisionHistoryData');
 
 // const { addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./routes/player');
@@ -57,11 +57,11 @@ app.get('/allPatients', getAllPatients);
 app.get('/allUsers', getAllUsers);
 app.get('/getPatientInfo/:healthcardno', getPatientInfo);
 app.get('/getPatientBilling/:healthcardno', getPatientBilling);
-app.get('/getPatientBillingAdd/:healthcardno', getPatientBillingAdd);
-app.get('/getPatientBillingUpdate/:healthcardno', getPatientBillingUpdate);
+app.post('/postPatientBillingAdd/:healthcardno', postPatientBillingAdd);
+app.post('/postPatientBillingUpdate/:healthcardno', postPatientBillingUpdate);
 app.get('/getPatientImmunization/:healthcardno', getPatientImmunization);
-app.get('/getPatientImmunizationAdd/:healthcardno', getPatientImmunizationAdd);
-app.get('/getPatientImmunizationUpdate/:healthcardno', getPatientImmunizationUpdate);
+app.post('/postPatientImmunizationAdd/:healthcardno', postPatientImmunizationAdd);
+app.post('/postPatientImmunizationUpdate/:healthcardno', postPatientImmunizationUpdate);
 app.get('/getPatientRevisionHistory/:healthcardno', getPatientRevisionHistory);
 
 // set the app to listen on the port
