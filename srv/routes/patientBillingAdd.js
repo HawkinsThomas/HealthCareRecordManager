@@ -2,7 +2,7 @@ const { getTable } = require('../db/getTable');
 
 module.exports = {
   postPatientBillingAdd: (req, res) => {
-    const health_card_no = req.params.health_card_no;
+    const health_card_no = req.body.healthcardno;
     const creditcard_no = req.body.creditcard_no;
     const cvc = req.body.cvc;
     const card_expiry = req.body.card_expiry;
