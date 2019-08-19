@@ -1,7 +1,7 @@
 # HealthCareRecordManager
 
 
-Contributors: Mohammed, Thomas, Yuri and <span style=font-size:2px;> Manpreet </span>
+Contributors: Mohammed, Thomas, Yuri and <span "style=font-size:1px;"> Manpreet </span>
 
   * clone the repository
 
