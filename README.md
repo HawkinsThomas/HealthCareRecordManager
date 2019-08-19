@@ -1,7 +1,9 @@
 # HealthCareRecordManager
 
-#Assignment 2
 
+Contributors: Mohammed, Thomas, Yuri and Manpreet
+
+  * clone the repository
 
   * Scripts to initialize a database can be found in /sqlscripts
 
